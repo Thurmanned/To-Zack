@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Zack</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd1dc, #fff1a8, #c9f7ff);
+            background-size: 300% 300%;
+            animation: bgMove 8s ease infinite;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 390px;
+            padding: 40px 34px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 30px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+            animation: floatCard 3s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+
+        .big-heart {
+            font-size: 58px;
+            animation: beat 1s infinite;
+        }
+
+        h1 {
+            color: #ff5c8a;
+            font-size: 36px;
+            margin: 18px 0 12px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #444;
+            font-size: 21px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 15px;
+            color: #777;
+        }
+
+        .tip {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .falling {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            animation: fall linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .falling:nth-child(1) { left: 8%; animation-duration: 7s; animation-delay: 0s; }
+        .falling:nth-child(2) { left: 22%; animation-duration: 9s; animation-delay: 1s; }
+        .falling:nth-child(3) { left: 36%; animation-duration: 8s; animation-delay: 2s; }
+        .falling:nth-child(4) { left: 55%; animation-duration: 10s; animation-delay: 0.5s; }
+        .falling:nth-child(5) { left: 70%; animation-duration: 7.5s; animation-delay: 1.5s; }
+        .falling:nth-child(6) { left: 88%; animation-duration: 9.5s; animation-delay: 2.5s; }
+
+        .bubble {
+            position: fixed;
+            bottom: -80px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+            animation: bubbleUp linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bubble:nth-child(7) { left: 12%; width: 22px; height: 22px; animation-duration: 8s; animation-delay: 0s; }
+        .bubble:nth-child(8) { left: 30%; width: 36px; height: 36px; animation-duration: 11s; animation-delay: 2s; }
+        .bubble:nth-child(9) { left: 48%; width: 18px; height: 18px; animation-duration: 9s; animation-delay: 1s; }
+        .bubble:nth-child(10) { left: 67%; width: 42px; height: 42px; animation-duration: 13s; animation-delay: 3s; }
+        .bubble:nth-child(11) { left: 82%; width: 25px; height: 25px; animation-duration: 10s; animation-delay: 1.5s; }
+
+        .click-heart {
+            position: fixed;
+            font-size: 28px;
+            transform: translate(-50%, -50%);
+            animation: heartFly 1.2s ease-out forwards;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-13px); }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bubbleUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-115vh) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartFly {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -170%) scale(1.8) rotate(18deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="falling">🌸</div>
+    <div class="falling">💖</div>
+    <div class="falling">🌟</div>
+    <div class="falling">🌸</div>
+    <div class="falling">💫</div>
+    <div class="falling">💖</div>
+
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <div class="card">
+        <div class="big-heart">💖</div>
+        <h1>To Zack</h1>
+        <p>愿你天天开心，万事顺意，前程似锦！</p>
+        <div class="footer">—— 来自悉尼的 LIMI</div>
+        <div class="tip">点击屏幕，会出现爱心 💕</div>
+    </div>
+
+    <script>
+        const hearts = ["💖", "💕", "💗", "💘", "💝", "❤️"];
+
+        document.addEventListener("click", function(event) {
+            const heart = document.createElement("div");
+            heart.className = "click-heart";
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = event.clientX + "px";
+            heart.style.top = event.clientY + "px";
+            heart.style.fontSize = (24 + Math.random() * 18) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
